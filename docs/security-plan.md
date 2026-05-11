@@ -1,6 +1,6 @@
 # RegFlow AI — Security Plan
 > Living document. Updated as security features are implemented.
-> Last updated: Session 1 (Phase 1 — Foundation)
+> Last updated: Session 2 (Phase 1 — Foundation)
 
 ---
 
@@ -18,11 +18,13 @@ independent layers so that if one fails, others still protect the system.
 ### Phase 1 — Foundation (Current)
 | Control | Status | Location |
 |---------|--------|----------|
-| API key authentication | 🔲 Planned | `src/api/middleware/auth.py` |
-| Rate limiting | 🔲 Planned | `src/api/middleware/rate_limiter.py` |
-| CORS configuration | 🔲 Planned | `src/api/middleware/cors.py` |
-| Structured request logging | 🔲 Planned | `src/api/middleware/request_logger.py` |
+| API key authentication | ✅ Done | `src/api/middleware/auth.py` |
+| Rate limiting | ✅ Done | `src/api/middleware/rate_limiter.py` |
+| CORS configuration | ✅ Done | `src/api/main.py` (CORSMiddleware) |
+| Structured request logging | ✅ Done | `src/api/middleware/request_logger.py` |
+| Centralised error handling | ✅ Done | `src/core/errors.py`, `src/api/main.py` |
 | Secrets in .env (never in code) | ✅ Done | `.env.example`, `.gitignore` |
+| SecretStr masks values in logs/repr | ✅ Done | `src/core/config.py` |
 | Pre-commit secret scanning | 🔲 Planned | `.pre-commit-config.yaml` |
 
 ### Phase 2 — Multi-Agent + RAG
