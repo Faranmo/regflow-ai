@@ -1,6 +1,6 @@
 # RegFlow AI — Security Plan
 > Living document. Updated as security features are implemented.
-> Last updated: Session 2 (Phase 1 — Foundation)
+> Last updated: Session 3 (Phase 1 — Foundation)
 
 ---
 
@@ -25,7 +25,8 @@ independent layers so that if one fails, others still protect the system.
 | Centralised error handling | ✅ Done | `src/core/errors.py`, `src/api/main.py` |
 | Secrets in .env (never in code) | ✅ Done | `.env.example`, `.gitignore` |
 | SecretStr masks values in logs/repr | ✅ Done | `src/core/config.py` |
-| Pre-commit secret scanning | 🔲 Planned | `.pre-commit-config.yaml` |
+| Pre-commit secret scanning | ✅ Done | `.pre-commit-config.yaml` (gitleaks) |
+| Audit log table (foundation) | ✅ Done | `src/db/models.py::AuditLog`, migration `0001` |
 
 ### Phase 2 — Multi-Agent + RAG
 | Control | Status | Location |

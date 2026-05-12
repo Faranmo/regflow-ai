@@ -20,6 +20,7 @@ from src.api.middleware.rate_limiter import RateLimitMiddleware
 from src.api.middleware.request_logger import RequestLoggingMiddleware
 from src.api.routes import health
 from src.core.config import settings
+from src.core.database import dispose_engine
 from src.core.errors import RegFlowError
 from src.core.logging import configure_logging, get_logger
 
@@ -35,6 +36,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         llm_provider=settings.llm_provider,
     )
     yield
+    await dispose_engine()
     log.info("app.shutdown")
 
 

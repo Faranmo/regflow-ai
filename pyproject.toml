@@ -65,6 +65,9 @@ dev = [
 
     # Pre-commit hooks
     "pre-commit>=4.0.0",
+
+    # In-memory async DB for tests (so tests don't need PostgreSQL)
+    "aiosqlite>=0.20.0",
 ]
 
 # ---------------------------------------------------------------------------
